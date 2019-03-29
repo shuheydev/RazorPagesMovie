@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{searchString?}"
 @model RazorPagesMovie.Pages.Movies.IndexModel
 
 @{
@@ -10,6 +10,20 @@
 <p>
     <a asp-page="Create">新規作成</a>
 </p>
+
+<form method="get">
+    <p>
+        ジャンル： <select asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+    </p>
+
+    <p>
+        タイトル： <input type="text" asp-for="SearchString"/>
+        <input type="submit" value="検索"/>
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
